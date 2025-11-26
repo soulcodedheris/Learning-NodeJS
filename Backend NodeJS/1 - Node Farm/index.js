@@ -1,16 +1,9 @@
-const fs = require("fs");
+import { readFileSync, writeFileSync } from "node:fs";
 
-// const textIn = fs.readFileSync("./txt/input.txt", "utf-8");
-// console.log(textIn);
+const input = readFileSync("./txt/read-this.txt", "utf-8");
 
-// const textOut = `This is what we know about the avocado: ${textIn}.`;
+console.log(input);
 
-// fs.writeFileSync("./txt/output.txt", textOut);
+const output = `This is the text gotten from the "read-this.txt" file in the next sentence. ${input}`;
 
-// console.log("File written!");
-
-
-fs.readFile('large-file.txt', (err, data) => {
-    console.log("File read!");
-  });
-  console.log("This runs immediately!");
+writeFileSync("./txt/output.txt", output, "utf-8");
